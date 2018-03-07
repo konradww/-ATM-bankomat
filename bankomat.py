@@ -2,10 +2,9 @@
 # -*- coding: utf-8 -*-
 import logging
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
-# logging.disable(logging.INFO) #turn off logging
+logging.disable(logging.INFO) #turn off logging
 ##########################
 # This program is ATM.
-# 
 # I used greedy algorithm.
 ##########################
 
@@ -24,7 +23,6 @@ class atm(object):
        sum = int(0)
        for key, value in self.cash.items():
             sum = sum + (key * value)
-
        logging.debug(sum)
        return sum
 
@@ -34,7 +32,6 @@ class atm(object):
 # How much money does he wants to take out?
    def HowMuchMoney(self,count):
        self.count = count
-       logging.debug(count)
        if (count <= self.sumCash() and self.limit >= count and count % 10 == 0):
 # More cash at the ATM #less cash than the limit #take out money  divided  without rest
 # take out money:
@@ -55,7 +52,7 @@ class atm(object):
             else:
                 pass
 # 200
-            if count >= 200 and self.cash[200]>0 and count>0:
+            if count >= 200 and self.cash[200]>0:
                 if (count / 200) >  self.cash[200]:
                     print( "Bank note 200: %i" % self.cash[200])
                     count = count - 200 * self.cash[200]
@@ -102,40 +99,8 @@ class atm(object):
                     print("The remaining amount: %i" % count)
             else:
                 pass
-#             if count >= 50 and self.cash[50]>0 and count>0:
-#                 if (count / 50) >  self.cash[50]:
-#                         if True:
-#                             print( "Bank note 50: %i" % self.cash[50])
-#                             count = count - 50 * self.cash[50]
-#                             self.cash[50]= self.cash[50] - self.cash[50]
-#                             logging.debug(self.cash[50])
-#                             print( "The remaining amount: %i" % count)
-#                         else:
-#
-#                             print( "go to bank note 20")
-#                 else:
-#                         #if (count - (50 * (self.cash[50]- int(count / 50)))) % 20 == 0: #zeby nie zostalo 30 np.
-#                         if True:
-#                             self.cash[50]= self.cash[50] - int(count / 50) # subtract with bank
-#                             print( "Banknot 50: %i"% (count / 50))
-#                             logging.debug(self.cash[50])
-#                             count = count - 50 *  int(count / 50)
-#
-#                             print( "The remaining amount: %i" % count)
-#                         else:
-#                             self.cash[50]= self.cash[50] - ((count / 50)-1) # subtract with bank
-#                             print( "Bank note 50: %i"% ((count / 50)-1))
-#                             count = count - 50 * ((count / 50)-1)
-#                             logging.debug( self.cash[50])
-#                             print( "The remaining amount: %i" % count)
-#
-#
-#                             print( "go to bank note20")
-#
-#             else:
-#                 pass
 # 20
-            if count >= 20 and self.cash[20]>0 and count>0:
+            if count >= 20 and self.cash[20]>0:
                 if (count / 20) >  self.cash[20]:
                     print( "Banknot 20: %i" % self.cash[20])
                     count = count - 20 * self.cash[20]
@@ -151,7 +116,7 @@ class atm(object):
             else:
                 pass
 # 10
-            if count >= 10 and self.cash[10]>0 and count>0:
+            if count >= 10 and self.cash[10]>0:
                 if (count / 10) >  self.cash[10]:
                     print( "Banknot 10: %i" % self.cash[10])
                     count = count - 10 * self.cash[10]
@@ -179,7 +144,7 @@ class atm(object):
 print(5 * '#####')
 
 # amount to take out
-x=980
+x=1980
 print("amount to take out:",x)
 obj1 = atm()
 print("sum of bank notes:",obj1.sumCash())
