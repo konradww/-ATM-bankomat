@@ -35,6 +35,7 @@ class atm(object):
        if (count <= self.sumCash() and self.limit >= count and count % 10 == 0):
 # More cash at the ATM #less cash than the limit #take out money  divided  without rest
 # take out money:
+# TODO I need to create one method for all types of banknotes!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # bank note 500
             if count >= 500 and self.cash[500]>0:
                 if (count / 500) >  self.cash[500]:
